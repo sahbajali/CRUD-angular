@@ -1,0 +1,97 @@
+<h2>Customer Management</h2>
+<div id="first" *ngIf="firsttable">
+<h3>Customer Details</h3>
+<table class="table table-hover">
+  <thead class="thead-dark">
+      <tr>
+          <th>Select</th>
+          <th>Customer ID</th>
+          <th>Customer Name</th>
+          <th>Customer Age</th>
+          <th>Customer Mobile Number</th>
+          <th>Customer RegStatus</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let x of Customers">
+          
+          
+          <td><input type="checkbox" [checked]="x.checked" class="large-button"  (click)="selectCustomer(x,$event)" [disabled]="x.regstatus=='Confirmed'" /></td>
+          
+          <td>{{x.id}}</td>
+          <td>{{x.customerName}}</td>
+          <td>{{x.customerAge}}</td>
+          <td>{{x.customerMobileNumber}}</td>
+          <td>{{x.regstatus}}</td>
+      </tr>
+  </tbody>
+</table>
+<br>
+<button type="button" class="selectAll" (click)="selectAll()">Select All</button>
+<!--
+<p>SelectAll Button to be placed</p>
+-->
+</div>
+<div id="second" *ngIf="selectedCustomers.length>0 && secondtable">
+
+  <h3 >Selected Customers</h3>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Customer Age</th>
+            <th>Customer Mobile Number</th>
+            <th>Customer RegStatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of selectedCustomers">
+            <td>{{x.id}}</td>
+            <td>{{x.customerName}}</td>
+            <td>{{x.customerAge}}</td>
+            <td>{{x.customerMobileNumber}}</td>
+            <td>{{x.regstatus}}</td>
+        </tr>
+    </tbody>
+  </table>
+  
+<!--</table>-->
+<!--
+<p>Proceed button to be placed</p>
+-->
+<br>
+<button class="proceed" (click)="proceedDeletion()">Proceed>></button>
+</div>
+<div id="third"  *ngIf="thirdtable">
+
+   <h3>Confirm Deletion</h3>
+   <table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Customer Age</th>
+            <th>Customer Mobile Number</th>
+            <th>Customer RegStatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of selectedCustomers">
+            <td>{{x.id}}</td>
+            <td>{{x.customerName}}</td>
+            <td>{{x.customerAge}}</td>
+            <td>{{x.customerMobileNumber}}</td>
+            <td>{{x.regstatus}}</td>
+        </tr>
+    </tbody>
+  </table>
+<!--
+<p>Ok & Cancel button to be placed</p>
+-->
+<br>
+<button class="ok" (click)="confirmDeletion()">Ok</button>&nbsp;
+<button class="cancel" (click)="cancelDeletion()">Cancel</button>
+</div>
+
+

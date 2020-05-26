@@ -1,0 +1,10 @@
+/*table, th, tr,td {
+	border-style: solid;
+}*/
+.large-button{
+	width:20px;
+	height:20px;
+}
+.selectAll,.proceed,.ok,.cancel{
+	border-radius: 10px;
+}
